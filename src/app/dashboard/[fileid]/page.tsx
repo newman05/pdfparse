@@ -4,15 +4,8 @@ import { notFound, redirect } from "next/navigation";
 import { db } from "@/db";
 import ChatWrapper from "@/components/chat/ChatWrapper";
 import PdfRenderer from "@/components/PdfRendererWrapper";
-
-interface PageProps {
-  params: Promise<{
-    fileid: string;
-  }>;
-}
-
-const Page = async ({ params }: PageProps) => {
-  const { fileid } = await params;
+const Page = async ({ params }: { params: { fileid: string } }) => {
+  const { fileid } = params;
 
   const { getUser } = getKindeServerSession();
   const user = await getUser();
@@ -28,7 +21,6 @@ const Page = async ({ params }: PageProps) => {
 
   if (!file) notFound();
 
-  // Use the direct UploadThing URL from database
   const pdfUrl = file.url;
 
   return (

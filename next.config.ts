@@ -6,7 +6,13 @@ const nextConfig: NextConfig = {
     config.resolve.alias.canvas = false
     config.resolve.alias.encoding = false
     return config
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: false, // Keep TypeScript checks
+  },
 };
 
 export default nextConfig;

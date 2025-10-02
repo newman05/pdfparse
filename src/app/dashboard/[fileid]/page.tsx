@@ -7,19 +7,17 @@ import PdfRenderer from "@/components/PdfRendererWrapper";
 import { getUserSubscriptionPlan } from "@/lib/stripe";
 
 interface PageProps {
-  params: {
-    fileid: string
-  }
+  params: Promise<{ fileid: string }>; // make params a Promise
 }
 
 const Page = async ({ params }: PageProps) => {
-  const { fileid } = params
+  const { fileid } = await params; // await params
 
-  const { getUser } = getKindeServerSession()
-  const user = await getUser()
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
 
   if (!user || !user.id) {
-    redirect(`/auth-callback?origin=dashboard/${fileid}`)
+    redirect(`/auth-callback?origin=dashboard/${fileid}`);
   }
 
   const file = await db.file.findFirst({
@@ -27,11 +25,11 @@ const Page = async ({ params }: PageProps) => {
       id: fileid,
       userId: user.id,
     },
-  })
+  });
 
-  if (!file) notFound()
+  if (!file) notFound();
 
-  const plan = await getUserSubscriptionPlan()
+  const plan = await getUserSubscriptionPlan();
 
   return (
     <div className="flex-1 justify-between flex flex-col h-[calc(100vh-3.5rem)]">
@@ -48,7 +46,7 @@ const Page = async ({ params }: PageProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

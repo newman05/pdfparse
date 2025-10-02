@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false, // Keep TypeScript checks
   },
+    images: {
+    domains: ['gravatar.com'] ,
+  },
 };
 
 export default nextConfig;

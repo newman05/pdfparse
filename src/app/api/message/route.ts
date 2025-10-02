@@ -125,7 +125,7 @@ USER INPUT: ${message}
         }
       },
     });
-
+    // logs for posting
     console.log('📤 Returning stream response...');
     return new Response(stream, {
       headers: {

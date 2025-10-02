@@ -6,9 +6,9 @@ import ChatWrapper from "@/components/chat/ChatWrapper";
 import PdfRenderer from "@/components/PdfRendererWrapper";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     fileid: string;
-  };
+  }>;
 }
 
 const Page = async ({ params }: PageProps) => {

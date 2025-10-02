@@ -1,6 +1,7 @@
 "use client"
 
 import { trpc } from "@/app/_trpc/client"
+import { absoluteUrl } from "@/lib/utils"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { httpBatchLink } from "@trpc/client"
 
@@ -12,7 +13,7 @@ const Providers = ({ children }: PropsWithChildren) => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: 'http://localhost:3001/api/trpc',
+          url: absoluteUrl("/api/trpc"),
         }),
       ],
     })

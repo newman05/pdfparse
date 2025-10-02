@@ -21,7 +21,7 @@ const Navbar = async () => {
           <Link
             href='/'
             className='flex z-40 font-semibold'>
-            <span>quill.</span>
+            <span>PdfParse.</span>
           </Link>
 
           <MobileNav isAuth={!!user} />

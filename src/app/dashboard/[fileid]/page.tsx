@@ -4,7 +4,14 @@ import { notFound, redirect } from "next/navigation";
 import { db } from "@/db";
 import ChatWrapper from "@/components/chat/ChatWrapper";
 import PdfRenderer from "@/components/PdfRendererWrapper";
-const Page = async ({ params }: { params: { fileid: string } }) => {
+
+interface PageProps {
+  params: {
+    fileid: string;
+  };
+}
+
+const Page = async ({ params }: PageProps) => {
   const { fileid } = params;
 
   const { getUser } = getKindeServerSession();

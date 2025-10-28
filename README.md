@@ -2,7 +2,7 @@
 
 A lightweight web app for interacting with PDF documents using AI-powered search and chat. Upload PDFs, extract searchable content, and ask natural-language questions about them.
 
-This README focuses on getting you up and running locally and contributing. There is limited emphasis on paid features — the project works locally with free tiers or API keys you provide.
+This README focuses on getting you up and running locally and contributing. 
 
 ## Highlights
 
